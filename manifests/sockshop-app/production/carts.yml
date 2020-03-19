@@ -8,7 +8,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-       name: carts
+        app: carts
+        stage: prod
+        release: stable
+        version: "2.3"
+        tier: "business"
+        product: "sockshop"
   template:
     metadata:
       annotations:
