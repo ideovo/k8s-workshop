@@ -21,7 +21,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-       name: orders-db
+        name: orders-db
+        stage: dev
+        version: "1.1"
+        tier: data
+        product: sockshop
   strategy:
     type: Recreate
   template:
@@ -100,7 +104,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-       name: orders-db
+        name: orders-db
+        stage: prod
+        version: "1.0"
+        tier: data
+        product: sockshop
   strategy:
     type: Recreate
   template:
