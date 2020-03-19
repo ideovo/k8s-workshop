@@ -1,11 +1,19 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: queue-master
   namespace: production
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        app: queue-master
+        stage: prod
+        release: stable
+        version: "1.0"
+        tier: "messaging"
+        product: "sockshop"
   template:
     metadata:
       annotations:
