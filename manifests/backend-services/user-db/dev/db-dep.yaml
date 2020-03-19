@@ -10,7 +10,12 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-       io.kompose.service: user-db
+        io.kompose.service: user-db
+        name: user-db
+        stage: dev
+        version: "2.1"
+        tier: data
+        product: sockshop
   strategy:
     type: Recreate
   template:
