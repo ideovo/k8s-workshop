@@ -10,7 +10,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-       name: rabbitmq
+        name: rabbitmq
+        stage: dev
+        version: "1.0"
+        tier: messaging
+        product: sockshop
   template:
     metadata:
       annotations:
