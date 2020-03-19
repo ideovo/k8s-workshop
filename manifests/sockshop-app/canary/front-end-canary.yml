@@ -1,11 +1,19 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: front-end.canary
   namespace: production
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        app: front-end.canary
+        stage: prod
+        release: canary
+        version: "1.5"
+        tier: "frontend"
+        product: "sockshop"
   template:
     metadata:
       annotations:
