@@ -1,11 +1,19 @@
 ---
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: shipping
   namespace: production
 spec:
   replicas: 1
+  selector:
+    matchLabels:
+        app: shipping
+        stage: prod
+        release: stable
+        version: "1.0"
+        tier: "business"
+        product: "sockshop"
   template:
     metadata:
       annotations:
